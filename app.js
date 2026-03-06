@@ -5,7 +5,7 @@ const CONFIG = {
     GEMINI_API_ENDPOINT: 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-pro:generateContent',
     MAX_RETRIES: 3,
     RETRY_DELAY: 2000,
-    GEMINI_API_KEY: 'AIzaSyDBvWK8-QcuGID-s0_IscCyWAzoexJ--ys' // TODO: Replace with your API key
+    Gconst GEMINI_API_KEY = "YOUR_NEW_API_KEY";
 };
 
 // System Prompt for Gemini - Engineered for precise extraction and classification
@@ -495,5 +495,6 @@ window.addEventListener('beforeunload', () => {
 });
 
 console.log('MedGuard AI Application loaded');
+
 
 
