@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedGuard AI – Patient Safety Intelligence</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1>🏥 MedGuard AI</h1>
+                <p class="subtitle">Patient Safety Intelligence</p>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <!-- Left Panel: Patient Intake -->
+            <section class="intake-section">
+                <h2>Patient Intake Screening</h2>
+                <div class="form-group">
+                    <label for="intakeText">Raw Patient Intake Record</label>
+                    <textarea 
+                        id="intakeText" 
+                        class="intake-textarea"
+                        placeholder="Paste patient intake record here...
+                        
+Example:
+PATIENT ID: PT-001
+Name: Ravi Shankar
+Age: 58 | Gender: Male
+Ward: Emergency
+Symptoms: Severe chest pain, shortness of breath
+Vitals: BP 180/110, Pulse 102, SpO2 94%
+Known Allergies: Penicillin, Aspirin
+Current Medications: Warfarin 5mg daily"
+                    ></textarea>
+                </div>
+                <button id="screenBtn" class="btn btn-primary">🔍 Screen Patient</button>
+                <div id="loadingSpinner" class="loading-spinner hidden">
+                    <div class="spinner"></div>
+                    <p>Processing with AI...</p>
+                </div>
+            </section>
+
+            <!-- Right Panel: Results -->
+            <section class="results-section">
+                <h2>Extracted Results</h2>
+                <div id="resultPanel" class="result-panel">
+                    <p class="placeholder">Results will appear here</p>
+                </div>
+                <button id="submitBtn" class="btn btn-success hidden" onclick="submitPatientRecord()">✓ Submit to Database</button>
+            </section>
+        </main>
+
+        <!-- Dashboard Section -->
+        <section class="dashboard-section">
+            <h2>Live Patient Dashboard</h2>
+            <div class="dashboard-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="CRITICAL">🔴 Critical</button>
+                <button class="filter-btn" data-filter="MODERATE">🟡 Moderate</button>
+                <button class="filter-btn" data-filter="SAFE">🟢 Safe</button>
+            </div>
+            <div id="dashboardContainer" class="dashboard-grid">
+                <p class="placeholder">No records yet. Screen a patient to begin.</p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Firebase + App Scripts -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore-compat.js"></script>
+    <script src="firebase.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
